@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Mom & Dad ❤️</title>
+
+<title>For Mom & Dad ❤️</title>
 
 <style>
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -21,342 +18,307 @@ html {
 }
 
 body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050510;
     color: white;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255, 80, 150, .15), transparent 25%),
-        radial-gradient(circle at 80% 30%, rgba(100, 100, 255, .15), transparent 25%),
-        linear-gradient(135deg, #050510, #0b1025, #090713);
+    overflow-x: hidden;
 }
 
+/* =========================
+   BACKGROUND
+========================= */
 
-/* =========================================================
-   STAR BACKGROUND
-========================================================= */
-
-.stars,
-.stars::before,
-.stars::after {
+.background {
     position: fixed;
     inset: 0;
-    content: "";
-    pointer-events: none;
-    z-index: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #252060 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #3a123d 0%, transparent 30%),
+        #050510;
+    z-index: -5;
 }
 
-.stars {
-    background-image:
-        radial-gradient(circle, white 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1.5px);
-    background-size: 80px 80px, 130px 130px;
-    background-position: 0 0, 40px 60px;
-    animation: starMove 20s linear infinite;
-    opacity: .55;
+/* Stars */
+
+.star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: twinkle 2s infinite alternate;
+    z-index: -2;
 }
 
-@keyframes starMove {
+.star:nth-child(1) { left: 10%; top: 20%; animation-delay: .2s; }
+.star:nth-child(2) { left: 20%; top: 70%; animation-delay: .8s; }
+.star:nth-child(3) { left: 30%; top: 30%; animation-delay: 1s; }
+.star:nth-child(4) { left: 40%; top: 80%; animation-delay: .4s; }
+.star:nth-child(5) { left: 50%; top: 15%; animation-delay: 1.3s; }
+.star:nth-child(6) { left: 60%; top: 60%; animation-delay: .6s; }
+.star:nth-child(7) { left: 70%; top: 25%; animation-delay: 1.5s; }
+.star:nth-child(8) { left: 80%; top: 75%; animation-delay: .9s; }
+.star:nth-child(9) { left: 90%; top: 40%; animation-delay: 1.2s; }
+.star:nth-child(10) { left: 15%; top: 45%; animation-delay: .3s; }
+.star:nth-child(11) { left: 35%; top: 55%; animation-delay: 1.1s; }
+.star:nth-child(12) { left: 85%; top: 15%; animation-delay: .7s; }
+
+@keyframes twinkle {
     from {
-        transform: translateY(0);
+        opacity: .2;
+        transform: scale(.5);
     }
     to {
-        transform: translateY(80px);
+        opacity: 1;
+        transform: scale(1.5);
     }
 }
 
-
-/* =========================================================
+/* =========================
    FLOATING HEARTS
-========================================================= */
+========================= */
 
 .heart {
     position: fixed;
-    bottom: -50px;
     font-size: 25px;
-    animation: floatHeart linear forwards;
-    pointer-events: none;
-    z-index: 3;
+    opacity: .8;
+    animation: floatHeart 8s linear infinite;
+    z-index: -1;
+}
+
+.heart:nth-of-type(1) {
+    left: 8%;
+    bottom: -50px;
+    animation-delay: 1s;
+}
+
+.heart:nth-of-type(2) {
+    left: 25%;
+    bottom: -50px;
+    animation-delay: 4s;
+}
+
+.heart:nth-of-type(3) {
+    left: 55%;
+    bottom: -50px;
+    animation-delay: 2s;
+}
+
+.heart:nth-of-type(4) {
+    left: 80%;
+    bottom: -50px;
+    animation-delay: 6s;
 }
 
 @keyframes floatHeart {
     0% {
-        transform: translateY(0) scale(.5) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
 
-    15% {
+    20% {
         opacity: 1;
     }
 
     100% {
-        transform: translateY(-110vh) scale(1.4) rotate(30deg);
+        transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
 }
 
+/* =========================
+   HERO
+========================= */
 
-/* =========================================================
-   COMMON
-========================================================= */
-
-section {
-    position: relative;
-    z-index: 2;
+.hero {
     min-height: 100vh;
-    padding: 80px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.container {
-    width: min(1100px, 94%);
-    margin: auto;
     text-align: center;
+    padding: 30px 20px;
 }
 
-
-/* =========================================================
-   INTRO SCREEN
-========================================================= */
-
-#intro {
-    min-height: 100vh;
-}
-
-.intro-card {
-    width: min(850px, 95%);
-    padding: 60px 30px;
-    border-radius: 35px;
-
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-        0 0 50px rgba(255, 80, 150, .12),
-        inset 0 0 50px rgba(255,255,255,.02);
-
-    backdrop-filter: blur(15px);
-
-    animation: introAppear 1.5s ease forwards;
-}
-
-@keyframes introAppear {
-    from {
-        opacity: 0;
-        transform: translateY(50px) scale(.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.hero-content {
+    max-width: 900px;
 }
 
 .small-title {
-    font-size: 15px;
     letter-spacing: 7px;
-    text-transform: uppercase;
-    color: #ffd5e5;
+    font-size: 14px;
+    color: #ffd6e7;
     margin-bottom: 25px;
+
+    animation: fadeDown 1.5s ease forwards;
 }
 
-h1 {
-    font-size: clamp(45px, 8vw, 90px);
+.hero h1 {
+    font-size: clamp(45px, 8vw, 100px);
     line-height: 1;
     margin-bottom: 25px;
 
     background: linear-gradient(
         90deg,
-        #fff,
-        #ffd3e4,
-        #fff
+        #ffffff,
+        #ffd2e4,
+        #ffffff,
+        #ffd2e4
     );
 
+    background-size: 300%;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 
-    animation: shine 4s linear infinite;
+    animation:
+        titleAppear 2s ease,
+        shine 5s linear infinite;
 }
 
-@keyframes shine {
-    0% {
-        filter: brightness(1);
-    }
-
-    50% {
-        filter: brightness(1.5);
-    }
-
-    100% {
-        filter: brightness(1);
-    }
-}
-
-.intro-text {
-    max-width: 650px;
-    margin: auto;
+.hero p {
     font-size: 20px;
-    line-height: 1.8;
     color: #ddd;
+    margin-bottom: 40px;
+
+    animation: fadeUp 2s ease;
 }
 
-.heart-big {
-    font-size: 65px;
-    display: block;
-    margin-bottom: 20px;
-    animation: heartbeat 1.4s infinite;
-}
+/* =========================
+   BUTTON
+========================= */
 
-@keyframes heartbeat {
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.18);
-    }
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn {
-    border: 1px solid rgba(255,255,255,.25);
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.12),
-        rgba(255,255,255,.04)
-    );
-
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
     color: white;
+}
 
-    padding: 16px 30px;
-    margin-top: 35px;
-
+.main-button {
+    padding: 16px 35px;
     border-radius: 50px;
 
-    font-size: 17px;
-    font-weight: 600;
+    background: linear-gradient(
+        135deg,
+        #ff4f81,
+        #ff8e53
+    );
 
-    cursor: pointer;
+    box-shadow:
+        0 0 20px rgba(255, 70, 130, .4),
+        0 0 50px rgba(255, 70, 130, .15);
 
     transition: .3s;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.25);
+    animation: buttonPulse 2s infinite;
 }
 
-.btn:hover {
-    transform: translateY(-5px) scale(1.04);
-
-    box-shadow:
-        0 15px 40px rgba(255,80,150,.25);
-
-    background: linear-gradient(
-        135deg,
-        rgba(255,100,160,.25),
-        rgba(100,100,255,.18)
-    );
+.main-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px rgba(255, 80, 150, .8);
 }
 
-.btn:active {
-    transform: scale(.96);
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255,70,130,.4);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(255,70,130,.9);
+    }
 }
 
+/* =========================
+   MESSAGE
+========================= */
 
-/* =========================================================
-   MESSAGE SECTION
-========================================================= */
+.message-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
 
 .message-box {
-    max-width: 850px;
-    padding: 55px 35px;
+    max-width: 800px;
+    text-align: center;
 
+    padding: 50px 30px;
+
+    border: 1px solid rgba(255,255,255,.15);
     border-radius: 30px;
 
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(255,255,255,.12);
-
+    background: rgba(255,255,255,.06);
     backdrop-filter: blur(15px);
 
-    box-shadow: 0 20px 70px rgba(0,0,0,.35);
+    box-shadow: 0 20px 80px rgba(0,0,0,.5);
+
+    opacity: 0;
+    transform: translateY(80px);
+    transition: 1s;
 }
 
-.section-title {
-    font-size: clamp(35px, 6vw, 60px);
+.message-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message-box h2 {
+    font-size: 42px;
     margin-bottom: 25px;
 }
 
 .message-box p {
-    color: #ddd;
     font-size: 19px;
-    line-height: 2;
+    line-height: 1.8;
+    color: #ddd;
 }
 
-.highlight {
-    color: #ffb7d3;
-    font-weight: bold;
-}
+/* =========================
+   PHOTO SECTION
+========================= */
 
-
-/* =========================================================
-   PHOTO REVEAL
-========================================================= */
-
-#memories {
-    display: block;
-    padding-top: 100px;
-}
-
-.memory-heading {
+.photos-section {
+    padding: 100px 20px;
     text-align: center;
-    margin-bottom: 45px;
 }
 
-.memory-heading h2 {
-    font-size: clamp(38px, 6vw, 65px);
+.photos-section h2 {
+    font-size: 45px;
+    margin-bottom: 15px;
 }
 
-.memory-heading p {
+.subtitle {
     color: #bbb;
-    margin-top: 12px;
-    font-size: 18px;
+    margin-bottom: 60px;
 }
 
-.photo-grid {
-    width: min(1100px, 94%);
+.gallery {
+    max-width: 1100px;
     margin: auto;
 
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .photo-card {
     position: relative;
-    height: 390px;
-
     overflow: hidden;
 
     border-radius: 25px;
 
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.18);
+    background: #111;
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
 
     opacity: 0;
-    transform: translateY(70px) scale(.9);
+    transform: translateY(100px) scale(.8);
 
     transition:
-        opacity .8s ease,
-        transform .8s ease,
-        box-shadow .3s;
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 .photo-card.show {
@@ -364,86 +326,621 @@ h1 {
     transform: translateY(0) scale(1);
 }
 
-.photo-card:hover {
-    transform: translateY(-10px) scale(1.02);
+.photo-card:nth-child(1) {
+    transition-delay: .1s;
+}
 
-    box-shadow:
-        0 25px 70px rgba(255,80,150,.22);
+.photo-card:nth-child(2) {
+    transition-delay: .3s;
+}
+
+.photo-card:nth-child(3) {
+    transition-delay: .5s;
+}
+
+.photo-card:nth-child(4) {
+    transition-delay: .7s;
+}
+
+.photo-card:nth-child(5) {
+    transition-delay: .9s;
 }
 
 .photo-card img {
     width: 100%;
-    height: 100%;
+    height: 360px;
 
     object-fit: cover;
 
     display: block;
 
-    transition: transform .7s;
+    transition: transform .7s ease;
 }
 
 .photo-card:hover img {
-    transform: scale(1.08);
+    transform: scale(1.12);
 }
-
-.photo-overlay {
-    position: absolute;
-    inset: auto 0 0 0;
-
-    padding: 35px 15px 18px;
-
-    background: linear-gradient(
-        transparent,
-        rgba(0,0,0,.85)
-    );
-
-    font-size: 17px;
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   PHOTO POPUP
-========================================================= */
 
 .photo-card::after {
     content: "❤️";
     position: absolute;
-
     top: 15px;
     right: 15px;
 
-    width: 42px;
-    height: 42px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: rgba(0,0,0,.45);
-    backdrop-filter: blur(5px);
+    font-size: 25px;
 
     opacity: 0;
-    transform: scale(.5);
 
     transition: .3s;
 }
 
 .photo-card:hover::after {
     opacity: 1;
-    transform: scale(1);
 }
 
+.photo-text {
+    padding: 15px;
+    background: rgba(0,0,0,.65);
+    font-size: 16px;
+}
 
-/* =========================================================
-   SURPRISE SECTION
-========================================================= */
+/* =========================
+   SURPRISE
+========================= */
 
-#surprise {
+.surprise {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+
+    padding: 80px 20px;
 }
 
-.surprise-box {
+.surprise-content {
     max-width: 800px;
-    padding: 60
+}
+
+.surprise h2 {
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.hidden-message {
+    margin-top: 40px;
+
+    max-height: 0;
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height 1.5s ease,
+        opacity 1s ease;
+}
+
+.hidden-message.show {
+    max-height: 600px;
+    opacity: 1;
+}
+
+.hidden-message p {
+    font-size: 23px;
+    line-height: 1.8;
+    color: #ffdce9;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    min-height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.final h2 {
+    font-size: clamp(45px, 7vw, 80px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffb6d2,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: shine 4s linear infinite;
+}
+
+.final p {
+    margin-top: 20px;
+    color: #bbb;
+    font-size: 18px;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    top: -20px;
+
+    animation: fall 3s linear forwards;
+
+    z-index: 100;
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .message-box h2,
+    .photos-section h2,
+    .surprise h2 {
+        font-size: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- STARS -->
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<!-- FLOATING HEARTS -->
+<div class="heart">❤️</div>
+<div class="heart">💗</div>
+<div class="heart">💕</div>
+<div class="heart">❤️</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            A MOMENT WORTH KEEPING
+        </div>
+
+        <h1>
+            For My Mom & Dad ❤️
+        </h1>
+
+        <p>
+            Every picture holds a beautiful memory.
+        </p>
+
+        <button
+            class="main-button"
+            onclick="startExperience()">
+
+            Begin The Surprise ✨
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MESSAGE
+========================= -->
+
+<section class="message-section">
+
+    <div class="message-box" id="message">
+
+        <h2>
+            Thank You ❤️
+        </h2>
+
+        <p>
+            Mom and Dad, there are so many things
+            I could say, but sometimes words are
+            simply not enough.
+            <br><br>
+
+            Thank you for every sacrifice,
+            every smile, every lesson,
+            every hug and every moment
+            you have given me.
+            <br><br>
+
+            You are not just my parents.
+            You are my home. 🏡❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PHOTOS
+========================= -->
+
+<section class="photos-section">
+
+    <h2>
+        Our Beautiful Memories 📸
+    </h2>
+
+    <p class="subtitle">
+        Five pictures. Countless memories.
+    </p>
+
+
+    <div class="gallery">
+
+        <div class="photo-card">
+            <img src="photo1.jpg" alt="Beautiful family memory">
+            <div class="photo-text">
+                A memory I'll always keep ❤️
+            </div>
+        </div>
+
+
+        <div class="photo-card">
+            <img src="photo2.jpg" alt="Beautiful family memory">
+            <div class="photo-text">
+                A moment filled with love 💕
+            </div>
+        </div>
+
+
+        <div class="photo-card">
+            <img src="photo3.jpg" alt="Beautiful family memory">
+            <div class="photo-text">
+                Happiness together ✨
+            </div>
+        </div>
+
+
+        <div class="photo-card">
+            <img src="photo4.jpg" alt="Beautiful family memory">
+            <div class="photo-text">
+                One of my favourite memories ❤️
+            </div>
+        </div>
+
+
+        <div class="photo-card">
+            <img src="photo5.jpg" alt="Beautiful family memory">
+            <div class="photo-text">
+                Forever grateful for you both 🥹
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SURPRISE
+========================= -->
+
+<section class="surprise">
+
+    <div class="surprise-content">
+
+        <h2>
+            One Last Surprise 🎁
+        </h2>
+
+        <button
+            class="main-button"
+            onclick="revealSurprise()">
+
+            Open My Heart ❤️
+
+        </button>
+
+
+        <div
+            class="hidden-message"
+            id="surpriseMessage">
+
+            <p>
+
+                Mom & Dad ❤️
+
+                <br><br>
+
+                No matter how old I become,
+                I'll always be your child.
+
+                <br><br>
+
+                Everything I am today is because
+                of your love, support and sacrifices.
+
+                <br><br>
+
+                I may not say it every day...
+
+                <br><br>
+
+                But I LOVE YOU BOTH
+                MORE THAN WORDS CAN EVER EXPLAIN. ❤️
+
+                <br><br>
+
+                Thank you for being my world. 🌎❤️
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+    <div>
+
+        <h2>
+            I Love You, Mom & Dad ❤️
+        </h2>
+
+        <p>
+            Forever and always.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   START EXPERIENCE
+========================= */
+
+function startExperience() {
+
+    document.getElementById("message")
+        .classList.add("show");
+
+    setTimeout(function() {
+
+        document.querySelectorAll(".photo-card")
+            .forEach(function(card) {
+
+                card.classList.add("show");
+
+            });
+
+    }, 500);
+
+    createConfetti();
+
+    setTimeout(function() {
+
+        document.querySelector(".photos-section")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }, 900);
+}
+
+
+/* =========================
+   SURPRISE BUTTON
+========================= */
+
+function revealSurprise() {
+
+    const message =
+        document.getElementById("surpriseMessage");
+
+    message.classList.add("show");
+
+    createConfetti();
+
+    setTimeout(function() {
+
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 300);
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const symbols = [
+        "❤️",
+        "💕",
+        "✨",
+        "💗",
+        "🌸",
+        "⭐"
+    ];
+
+    for (let i = 0; i < 60; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.fontSize =
+            (12 + Math.random() * 20) + "px";
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * .5 + "s";
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(function() {
+
+            piece.remove();
+
+        }, 5000);
+
+    }
+}
+
+
+/* =========================
+   AUTO REVEAL PHOTOS
+========================= */
+
+window.addEventListener("load", function() {
+
+    /*
+       This makes the first screen work immediately.
+       When you press Begin The Surprise,
+       the full animation starts.
+    */
+
+    document.querySelectorAll(".photo-card")
+        .forEach(function(card) {
+
+            card.classList.add("show");
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>
