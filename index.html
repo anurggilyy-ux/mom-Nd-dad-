@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Mom & Dad ❤️</title>
+
+<style>
+
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #050816;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   ANIMATED BACKGROUND
+===================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(142, 68, 173, 0.35), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(52, 152, 219, 0.25), transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(231, 76, 60, 0.10), transparent 45%);
+
+    z-index: -5;
+}
+
+.background-glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 105, 180, 0.08);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+
+    animation: moveGlow 12s infinite alternate ease-in-out;
+
+    z-index: -4;
+}
+
+@keyframes moveGlow {
+
+    0% {
+        transform: translate(-150px, -100px);
+    }
+
+    100% {
+        transform: translate(70vw, 60vh);
+    }
+
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.star {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+
+    0% {
+        opacity: 0.15;
+        transform: scale(0.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+}
+
+.small-title {
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    opacity: 0.65;
+
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(45px, 9vw, 90px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: clamp(32px, 6vw, 60px);
+
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    opacity: 0.88;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn {
+    border: 1px solid rgba(255,255,255,0.35);
+
+    padding: 15px 32px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.10);
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    margin-top: 30px;
+
+    transition: 0.35s;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    background: rgba(255,255,255,0.20);
+
+    box-shadow:
+        0 15px 40px rgba(255,255,255,0.15);
+}
+
+
+/* =====================================================
+   LAYER 1 — OPENING
+===================================================== */
+
+#opening {
+    overflow: hidden;
+}
+
+.opening-heart {
+    font-size: 85px;
+
+    margin-bottom: 20px;
+
+    animation:
+        heartbeat 1.5s infinite,
+        floatingHeart 3s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+@keyframes floatingHeart {
+
+    0%,100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -15px;
+    }
+
+}
+
+.typing {
+    max-width: 600px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    border-right: 2px solid white;
+
+    animation:
+        typing 4s steps(45,end),
+        blink 0.8s infinite;
+}
+
+@keyframes typing {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+@keyframes blink {
+
+    50% {
+        border-color: transparent;
+    }
+
+}
+
+
+/* =====================================================
+   GLASS CARD
+===================================================== */
+
+.glass {
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    padding: 50px 35px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.35);
+}
+
+
+/* =====================================================
+   LAYER 3 — REASONS
+===================================================== */
+
+.reasons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 40px;
+}
+
+.reason {
+    padding: 30px 20px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: 0.4s;
+}
+
+.reason:hover {
+    transform:
+        translateY(-12px)
+        scale(1.03);
+
+    background:
+        rgba(255,255,255,0.13);
+}
+
+.reason-icon {
+    font-size: 50px;
+
+    margin-bottom: 18px;
+}
+
+.reason h3 {
+    margin-bottom: 12px;
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   LAYER 4 — QUOTE
+===================================================== */
+
+.quote {
+    font-size: clamp(25px, 5vw, 45px);
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    position: relative;
+}
+
+.quote-mark {
+    font-size: 100px;
+
+    opacity: 0.2;
+
+    line-height: 0;
+}
+
+
+/* =====================================================
+   LAYER 5 — GIFT BOX
+===================================================== */
+
+.gift-area {
+    margin-top: 50px;
+}
+
+.gift {
+    width: 170px;
+    height: 150px;
+
+    margin: auto;
+
+    position: relative;
+
+    cursor: pointer;
+
+    animation:
+        giftFloat 2s infinite ease-in-out;
+}
+
+@keyframes giftFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+.gift-box {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 170px;
+    height: 110px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8e44ad,
+            #d63384
+        );
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.3);
+}
+
+.gift-lid {
+    position: absolute;
+
+    top: 15px;
+
+    left: -8px;
+
+    width: 186px;
+    height: 40px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e84393,
+            #c03975
+        );
+
+    z-index: 4;
+
+    transition:
+        transform 0.8s ease;
+}
+
+.gift-ribbon-vertical {
+    position: absolute;
+
+    left: 70px;
+
+    width: 30px;
+
+    height: 100%;
+
+    background: #ffd166;
+
+    z-index: 3;
+}
+
+.gift-ribbon-horizontal {
+    position: absolute;
+
+    left: 0;
+    top: 15px;
+
+    width: 100%;
+    height: 40px;
+
+    background: #ffd166;
+
+    opacity: 0.8;
+
+    z-index: 5;
+}
+
+.gift.open .gift-lid {
+    transform:
+        translateY(-80px)
+        rotate(-10deg);
+}
+
+
+/* =====================================================
+   SURPRISE TEXT
+===================================================== */
+
+#giftMessage {
+    display: none;
+
+    margin-top: 45px;
+
+    animation:
+        surpriseAppear 1.2s ease;
+}
+
+@keyframes surpriseAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   PHOTO REVEAL
+===================================================== */
+
+.photo-container {
+    margin: 40px auto;
+
+    max-width: 650px;
+
+    position: relative;
+}
+
+.photo-frame {
+    padding: 12px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #d4af37,
+            #ffffff,
+            #d4af37,
+            #ffffff
+        );
+
+    box-shadow:
+        0 0 80px rgba(255,215,100,0.25);
+}
+
+.photo-frame img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.6s ease;
+}
+
+.photo-frame:hover img {
+    transform: scale(1.02);
+}
+
+.photo-caption {
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   MEMORY CARDS
+===================================================== */
+
+.memory-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-top: 40px;
+}
+
+.memory {
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    transition: 0.3s;
+}
+
+.memory:hover {
+    transform: scale(1.03);
+}
+
+.memory span {
+    font-size: 35px;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-heart {
+    font-size: 110px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+.signature {
+    margin-top: 35px;
+
+    font-size: 23px;
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -60px;
+
+    pointer-events: none;
+
+    z-index: 50;
+
+    animation:
+        floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-115vh)
+            scale(1.4)
+            rotate(25deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
+   FIREWORKS
+===================================================== */
+
+.firework {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    animation:
+        explode 1.5s ease-out forwards;
+}
+
+@keyframes explode {
+
+    0% {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0.2);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
+
+.scroll-down {
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    opacity: 0.5;
+
+    animation:
+        scrollBounce 1.5s infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(10px);
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 700px) {
+
+    section {
+        padding:
+            70px 18px;
+    }
+
+    .glass {
+        padding:
+            35px 22px;
+    }
+
+    .reasons {
+        grid-template-columns:
+            1fr;
+    }
+
+    .memory-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .typing {
+        white-space: normal;
+
+        border-right: none;
+
+        animation: none;
+
+        width: auto;
+    }
+
+    .gift {
+        transform: scale(0.9);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-glow"></div>
+
+<div class="stars" id="stars"></div>
+
+
+<!-- =====================================================
+     LAYER 1
+===================================================== -->
+
+<section id="opening">
+
+<div class="container">
+
+    <div class="opening-heart">
+        ❤️
+    </div>
+
+    <div class="small-title">
+        A little surprise
+    </div>
+
+    <h1>
+        For Mom & Dad
+    </h1>
+
+    <p class="typing">
+        For the two people who mean the world to me...
+    </p>
+
+    <button
+        class="btn"
+        onclick="goTo('layer2')">
+
+        Begin The Surprise ✨
+
+    </button>
+
+</div>
+
+<div class="scroll-down">
+    ↓
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 2
+===================================================== -->
+
+<section id="layer2">
+
+<div class="container">
+
+<div class="glass">
+
+    <div class="small-title">
+        Dear Mom & Dad
+    </div>
+
+    <h2>
+        Where would I be without you?
+    </h2>
+
+    <p>
+
+        There are some things in life
+        that words can never completely explain.
+
+        <br><br>
+
+        Your love.
+        Your sacrifices.
+        Your support.
+        Your patience.
+
+        <br><br>
+
+        Every little thing you have done
+        has helped me become the person
+        I am today.
+
+        <br><br>
+
+        I may not say it every day,
+        but I notice it.
+        I remember it.
+        And I am grateful for it.
+
+    </p>
+
+    <button
+        class="btn"
+        onclick="goTo('layer3')">
+
+        Continue ❤️
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 3
+===================================================== -->
+
+<section id="layer3">
+
+<div class="container">
+
+    <div class="small-title">
+        Because of you
+    </div>
+
+    <h2>
+        I became who I am.
+    </h2>
+
+    <div class="reasons">
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                🫶
+            </div>
+
+            <h3>
+                Your Love
+            </h3>
+
+            <p>
+                The kind of love that
+                never asks for anything
+                in return.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Your Protection
+            </h3>
+
+            <p>
+                You always stood beside me
+                whenever the world felt difficult.
+            </p>
+
+        </div>
+
+
+        <div class="reason">
+
+            <div class="reason-icon">
+                🌱
+            </div>
+
+            <h3>
+                Your Sacrifice
+            </h3>
+
+            <p>
+                You gave up so much
+                so I could dream bigger.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="goTo('layer4')">
+
+        One More Thing →
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 4
+===================================================== -->
+
+<section id="layer4">
+
+<div class="container">
+
+<div class="glass">
+
+    <div class="small-title">
+        A little thought
+    </div>
+
+    <div class="quote">
+
+        <div class="quote-mark">
+            “
+        </div>
+
+        The greatest gift I ever received
+        wasn't something wrapped in a box...
+
+        <br><br>
+
+        It was having you as my parents.
+
+    </div>
+
+    <button
+        class="btn"
+        onclick="goTo('layer5')">
+
+        I Have A Surprise 🎁
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 5 — GIFT
+===================================================== -->
+
+<section id="layer5">
+
+<div class="container">
+
+    <div class="small-title">
+        Something is waiting...
+    </div>
+
+    <h2>
+        Open Your Gift 🎁
+    </h2>
+
+    <p>
+        Tap the gift box.
+    </p>
+
+
+    <div class="gift-area">
+
+        <div
+            class="gift"
+            id="gift"
+            onclick="openGift()">
+
+
+            <div class="gift-lid"></div>
+
+
+            <div class="gift-box">
+
+                <div
+                    class="gift-ribbon-vertical">
+                </div>
+
+                <div
+                    class="gift-ribbon-horizontal">
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div id="giftMessage">
+
+        <h2>
+            You found the surprise! ❤️
+        </h2>
+
+        <p>
+            But the real surprise
+            is still waiting...
+        </p>
+
+        <button
+            class="btn"
+            onclick="goTo('layer6')">
+
+            Reveal The Photo 📸
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 6 — PHOTO
+===================================================== -->
+
+<section id="layer6">
+
+<div class="container">
+
+    <div class="small-title">
+        A moment worth keeping
+    </div>
+
+    <h2>
+        Our Little World ❤️
+    </h2>
+
+
+    <div class="photo-container">
+
+        <div class="photo-frame">
+
+            <!--
+                IMPORTANT:
+                Put your photo in the same folder
+                and name it parents.jpg
+            -->
+
+            <img
+                src="parents.jpg"
+                alt="Mom and Dad">
+
+        </div>
+
+    </div>
+
+
+    <div class="photo-caption">
+
+        One picture.
+        <br>
+        A thousand memories. ❤️
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="goTo('layer7')">
+
+        Keep Going 🫶
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 7
+===================================================== -->
+
+<section id="layer7">
+
+<div class="container">
+
+<div class="glass">
+
+    <div class="small-title">
+        If I could give you anything
+    </div>
+
+    <h2>
+        I would give you the world.
+    </h2>
+
+    <p>
+
+        But since I can't...
+
+        <br><br>
+
+        I'll keep working hard.
+
+        <br>
+
+        I'll keep learning.
+
+        <br>
+
+        I'll keep growing.
+
+        <br>
+
+        I'll keep trying to make you proud.
+
+        <br><br>
+
+        Because everything I am becoming
+        is partly because of you.
+
+    </p>
+
+
+    <div class="memory-grid">
+
+
+        <div class="memory">
+
+            <span>
+                🌅
+            </span>
+
+            Every morning,
+            your sacrifices remind me
+            to keep moving forward.
+
+        </div>
+
+
+        <div class="memory">
+
+            <span>
+                🌙
+            </span>
+
+            Every night,
+            I know I have two people
+            who believe in me.
+
+        </div>
+
+
+        <div class="memory">
+
+            <span>
+                🏠
+            </span>
+
+            Wherever I go,
+            home will always
+            mean you.
+
+        </div>
+
+
+        <div class="memory">
+
+            <span>
+                ❤️
+            </span>
+
+            No matter how old I become,
+            I'll always be your child.
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="goTo('final')">
+
+        One Last Message ❤️
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYER 8 — FINAL
+===================================================== -->
+
+<section id="final">
+
+<div class="container">
+
+    <div class="final-heart">
+        ❤️
+    </div>
+
+    <div class="small-title">
+        From my heart
+    </div>
+
+    <h1>
+        Thank You,
+        <br>
+        Mom & Dad.
+    </h1>
+
+
+    <p>
+
+        Thank you for every sacrifice.
+
+        <br>
+
+        Thank you for every lesson.
+
+        <br>
+
+        Thank you for every hug.
+
+        <br>
+
+        Thank you for believing in me.
+
+        <br><br>
+
+        I may not always say it...
+
+        <br>
+
+        but I love you both
+        more than words could ever explain.
+
+        <br><br>
+
+        You are my first home,
+        my biggest support,
+        and two of the most important
+        people in my life.
+
+    </p>
+
+
+    <div class="signature">
+
+        Forever your child. ❤️
+
+    </div>
+
+
+    <button
+        class="btn"
+        onclick="celebrate()">
+
+        One More Surprise ✨
+
+    </button>
+
+</div>
+
+</section>
+
+
+<script>
+
+
+/* =====================================================
+   CREATE STARS
+===================================================== */
+
+const starsContainer =
+    document.getElementById("stars");
+
+for (let i = 0; i < 150; i++) {
+
+    const star =
+        document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    star.style.opacity =
+        Math.random();
+
+    starsContainer.appendChild(star);
+}
+
+
+/* =====================================================
+   SMOOTH NAVIGATION
+===================================================== */
+
+function goTo(id) {
+
+    const element =
+        document.getElementById(id);
+
+    element.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   GIFT OPENING
+===================================================== */
+
+function openGift() {
+
+    const gift =
+        document.getElementById("gift");
+
+    const message =
+        document.getElementById("giftMessage");
+
+
+    if (gift.classList.contains("open")) {
+        return;
+    }
+
+
+    gift.classList.add("open");
+
+
+    createHeartBurst();
+
+
+    setTimeout(() => {
+
+        message.style.display =
+            "block";
+
+    }, 800);
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function createFloatingHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+
+    const icons = [
+        "❤️",
+        "💖",
+        "💕",
+        "💗",
+        "💝",
+        "✨",
+        "🌹"
+    ];
+
+
+    heart.innerHTML =
+        icons[
+            Math.floor(
+                Math.random() *
+                icons.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (18 + Math.random() * 30) + "px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 10000);
+
+}
+
+
+setInterval(
+    createFloatingHeart,
+    800
+);
+
+
+/* =====================================================
+   HEART BURST
+===================================================== */
+
+function createHeartBurst() {
+
+    for (let i = 0; i < 30; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "floating-heart";
+
+        heart.innerHTML =
+            "❤️";
+
+
+        heart.style.left =
+            (45 + Math.random() * 10) +
+            "vw";
+
+
+        heart.style.bottom =
+            "35vh";
+
+
+        heart.style.fontSize =
+            (20 + Math.random() * 35) +
+            "px";
+
+
+        heart.style.animationDuration =
+            (2 + Math.random() * 3) +
+            "s";
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 6000);
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL CELEBRATION
+===================================================== */
+
+function celebrate() {
+
+    createHeartBurst();
+
+    createFireworks();
+
+}
+
+
+/* =====================================================
+   FIREWORKS
+===================================================== */
+
+function createFireworks() {
+
+    for (let i = 0; i < 8; i++) {
+
+        setTimeout(() => {
+
+            createFirework();
+
+        }, i * 350);
+
+    }
+
+}
+
+
+function createFirework() {
+
+    const centerX =
+        15 + Math.random() * 70;
+
+    const centerY =
+        15 + Math.random() * 55;
+
+
+    for (let i = 0; i < 35; i++) {
+
+        const particle =
+            document.createElement("div");
+
+        particle.className =
+            "firework";
+
+
+        particle.style.left =
+            centerX + "vw";
+
+        particle.style.top =
+            centerY + "vh";
+
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const distance =
+            50 +
+            Math.random() * 180;
+
+
+        const x =
+            Math.cos(angle) *
+            distance;
+
+
+        const y =
+            Math.sin(angle) *
+            distance;
+
+
+        particle.style.setProperty(
+            "--x",
+            x + "px"
+        );
+
+
+        particle.style.setProperty(
+            "--y",
+            y + "px"
+        );
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        setTimeout(() => {
+
+            particle.remove();
+
+        }, 1600);
+
+    }
+
+}
+
+
+/* =====================================================
+   EXTRA HEARTS WHEN USER CLICKS ANYWHERE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target.tagName ===
+            "BUTTON"
+        ) {
+
+            for (let i = 0; i < 3; i++) {
+
+                setTimeout(() => {
+
+                    createFloatingHeart();
+
+                }, i * 150);
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
